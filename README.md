@@ -1,6 +1,20 @@
-# Cricket Shot Classifier
+# Cricket Shot Classifier 🏏
+
+[![Open In Colab: Analysis](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ABISHEKMURUGAN-M/CricketShotClassifier/blob/master/Cricket_Shot_Analysis.ipynb)
+[![Open In Colab: Preprocessing](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ABISHEKMURUGAN-M/CricketShotClassifier/blob/master/Data_Preprocessing.ipynb)
+[![Open In Colab: LSTM](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ABISHEKMURUGAN-M/CricketShotClassifier/blob/master/LSTM_algorithm.ipynb)
+
 This project's aim was to create a machine learning model that can classify a batsman playing a shot in cricket. This was done by creating training data and using Google's [Video Intelligence API](https://cloud.google.com/video-intelligence), that has a feature called Person Detection. Transforming the videos through the API, I then trained a Long Short Term Memory (LSTM) Network which was then used to classify a test set of videos. The model had excellent accuracy on the test set (97%) and with more training data, this model can be expanded to classify other cricket shots.
-# Training Data
+
+## Table of Contents
+- [Training Data](#training-data)
+- [Using Pose Detection](#using-pose-detection)
+- [Classification using LSTM Network](#classification-using-long-short-term-memory-network)
+  - [Architecture](#architecture)
+  - [Results](#results)
+- [Future Work](#future-work)
+
+## Training Data
 Firstly I was required to create some training data. I chose three shots to perform:
 - Forward Defensive
 - Backfoot Defensive
@@ -8,9 +22,12 @@ Firstly I was required to create some training data. I chose three shots to perf
 
 These shots were chosen because I could consistently repeat the shot with little variation, which is beneficial when training the model. Furthermore, the **forward defensive** and **cover drive** are similar in their movements so it was a good test to see if the model could differentiate between the two shots accurately.  
 I recorded fifty of each type of shot, totalling 150 videos to input into the model.
-# Using Pose Detection
+## Using Pose Detection
 The first step was to run the Pose Detection API on the videos. The API takes a video and outputs the position, in the x & y directions, of key body parts such as, ankle, elbow, shoulder etc... 
-The following table shows an example of the output I recieved from the API:
+
+<details>
+<summary><b>View example output from the API (CSV format)</b></summary>
+
 |    |   timestamp |   nose_x |   nose_y |   left_eye_x |   left_eye_y |   right_eye_x |   right_eye_y |   right_ear_x |   right_ear_y |   left_shoulder_x |   left_shoulder_y |   right_shoulder_x |   right_shoulder_y |   left_elbow_x |   left_elbow_y |   right_elbow_x |   right_elbow_y |   left_wrist_x |   left_wrist_y |   right_wrist_x |   right_wrist_y |   left_hip_x |   left_hip_y |   right_hip_x |   right_hip_y |   left_knee_x |   left_knee_y |   right_knee_x |   right_knee_y |   left_ankle_x |   left_ankle_y |   right_ankle_x |   right_ankle_y |   left_ear_x |   left_ear_y |
 |----|-------------|----------|----------|--------------|--------------|---------------|---------------|---------------|---------------|-------------------|-------------------|--------------------|--------------------|----------------|----------------|-----------------|-----------------|----------------|----------------|-----------------|-----------------|--------------|--------------|---------------|---------------|---------------|---------------|----------------|----------------|----------------|----------------|-----------------|-----------------|--------------|--------------|
 |  0 |         0   | 0.529561 | 0.649577 |     0.529561 |     0.655916 |      0.518296 |      0.655916 |      0.476993 |      0.653803 |          0.522051 |          0.596754 |           0.386877 |           0.607318 |       0.548335 |       0.533365 |        0.330554 |        0.54393  |       0.499522 |       0.501671 |        0.386877 |        0.520687 |     0.469483 |     0.472089 |      0.383122 |      0.478428 |      0.458219 |      0.377006 |       0.360593 |       0.383345 |       0.446954 |       0.288262 |        0.326799 |        0.290375 |            0 |            0 |
@@ -36,16 +53,18 @@ The following table shows an example of the output I recieved from the API:
 | 20 |         2   | 0.808115 | 0.57939  |     0.820567 |     0.588733 |      0.799814 |      0.591069 |      0.758308 |      0.607418 |          0.750007 |          0.581726 |           0.691898 |           0.567712 |       0.803964 |       0.614425 |        0.849621 |        0.539684 |       0.882826 |       0.64946  |        0.90773  |        0.600411 |     0.696049 |     0.436915 |      0.613037 |      0.441586 |      0.766609 |      0.359838 |       0.517573 |       0.348159 |       0.683597 |       0.252397 |        0.347398 |        0.292104 |            0 |            0 |
 | 21 |         2.1 | 0.812573 | 0.583151 |     0.825023 |     0.592492 |      0.804273 |      0.594827 |      0.758623 |      0.611175 |          0.754473 |          0.57848  |           0.696373 |           0.569139 |       0.812573 |       0.606504 |        0.854073 |        0.54345  |       0.891423 |       0.650875 |        0.908023 |        0.601833 |     0.700523 |     0.438361 |      0.617523 |      0.443031 |      0.766923 |      0.35896  |       0.517923 |       0.347283 |       0.688073 |       0.25387  |        0.347773 |        0.291235 |            0 |            0 |
 
-After importing the data as a pandas dataframe, a certain amount of preprocessing had to be completed to prepare the data to be used for the model. The preprocessing steps can be seen in this [notebook](https://github.com/anudeepayina/CricketTracker/blob/master/Data_Preprocessing.ipynb).
+</details>
+
+After importing the data as a pandas dataframe, a certain amount of preprocessing had to be completed to prepare the data to be used for the model. The preprocessing steps can be seen in the [Data Preprocessing notebook](./Data_Preprocessing.ipynb).
 After preprocessing, I split the data into training and test sets and then I was prepared to create the classification model.
 
 # Classification using Long Short Term Memory Network
 ## Architecture
-The google collabs can be viewed [here](https://github.com/anudeepayina/CricketTracker/blob/master/LSTM_algorithm.ipynb)
+The notebooks can be viewed in the [LSTM algorithm notebook](./LSTM_algorithm.ipynb).
 LSTM was the algorithm chosen. This is because this is a time-series classification problem, where information from the previous timestep has some indication of the next. An LSTM can use the sequence of input data to classify the shot played, and treats the data as a whole instead of independently. 
 
 The model consisted of two LSTM cells (256 nodes each) and one dropout layer between the cells. Finally, it had one Dense layer with softmax activation. 
 ## Results
-After passing the test data through the model, an accuracy of 97% was achieved. This was a very promising result as the training data was limited to 38 videos per shot. With additional training data, a higher level of accuracy could be achieved. When eight additional sets of test data were passed into the model and predictions were obtained, the model predicted six of the eight correctly. This can be viewed [here](https://youtu.be/wsUOkzu-dtg). The video shows each shot played with the label of the shot and the models prediction.  
+After passing the test data through the model, an accuracy of 97% was achieved. This was a very promising result as the training data was limited to 38 videos per shot. With additional training data, a higher level of accuracy could be achieved. When eight additional sets of test data were passed into the model and predictions were obtained, the model predicted six of the eight correctly. The results can be viewed in this [demonstration video](https://youtu.be/wsUOkzu-dtg). The video shows each shot played with the label of the shot and the models prediction.
 ## Future Work
 With more data, the model can be expanded to other cricket shots. 

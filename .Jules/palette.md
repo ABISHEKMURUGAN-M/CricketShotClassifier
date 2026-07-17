@@ -1,0 +1,3 @@
+## 2024-07-17 - [Accessible Notebook Plots & Label Decoding]
+**Learning:** Notebook visualizations and raw outputs present major UX and accessibility hurdles. Standard line charts must use distinguishable markers and line styles (such as 'o' with '-' and 'x' with '--') rather than relying entirely on color to ensure colorblind accessibility. Machine learning outputs should also be decoded into human-readable strings using label encoders rather than presenting raw numerical class indices.
+**Action:** Always ensure matplotlib plots use both varying markers/linestyles and titles/legends. Always use inverse_transform to output human-readable labels for model inferences in notebooks.

@@ -1,0 +1,3 @@
+## 2023-11-20 - Model Visualization and Decoding Accessibility
+**Learning:** For Jupyter notebooks showing ML classifications, plots must use distinctive markers and line styles (like 'o-' for training and 'x--' for validation) rather than just color, ensuring clarity for colorblind users. Furthermore, predictions should be decoded using inverse_transform rather than showing raw category indices (0, 1, 2) to be understandable to all users.
+**Action:** Always apply explicit titles, axes labels, legends, and distinguishable markers in plots, and map encoded classes back to their original human-readable labels.

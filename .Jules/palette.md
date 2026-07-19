@@ -1,0 +1,3 @@
+## 2024-07-19 - Accessible Visualizations and Clear Prediction Decoding in Notebooks
+**Learning:** For users with colorblindness, standard line charts plotting training and validation metrics can be impossible to distinguish if they only use color. Combining different line styles and distinct markers (like 'o' vs 'x') ensures accessible comparison. Additionally, outputting raw encoded integer classes directly to users is confusing; decoding predictions into human-readable class names with `inverse_transform` provides a dramatically cleaner, more intuitive UX.
+**Action:** Always combine distinguishable markers/line-styles for plots, include a legend, and output fully decoded human-readable labels instead of raw numbers.

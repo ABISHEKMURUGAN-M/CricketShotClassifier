@@ -1,0 +1,3 @@
+## 2024-07-22 - Colorblind-Accessible Notebook Plots
+**Learning:** Model training accuracy plots lack differentiation when printed or viewed by colorblind users if they only use solid lines in default colors. Adding distinguishable markers (like circles vs. crosses) and dashed vs. solid line-styles ensures critical training progression data remains fully legible and accessible.
+**Action:** When creating or refining visualization plots in notebooks, always include distinguishable markers, varied line-styles, explicit axis labels, clear titles, and position the legend so it does not overlap with data points.

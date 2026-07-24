@@ -1,0 +1,5 @@
+# Palette's Journal - Critical Learnings Only
+
+## 2023-11-20 - Notebook Visualization Accessibility and Model Predict Modernization
+**Learning:** Visualizations in data science notebooks often default to basic lines with no legends, titles, or distinct styling, making them hard to interpret and inaccessible to colorblind or low-vision users. To solve this, plots must use legends, titles, distinguishable markers, and line styles. Additionally, deprecated notebook methods like `model.predict_classes()` cause runtime failures in modern Keras/TensorFlow environments; using standard predict logic with `np.argmax` combined with `inverse_transform` decodes model outputs into clear, human-readable labels that are instantly understandable.
+**Action:** Always verify that notebook plot cells use descriptive titles, clear axis labels, and distinguishable marker/line combinations for colorblind accessibility. Always modernize deprecated class prediction methods with standard predict calls and decode the output categories using LabelEncoder or similar decoders.

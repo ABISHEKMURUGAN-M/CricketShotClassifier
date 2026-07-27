@@ -1,0 +1,3 @@
+## 2025-01-24 - Jupyter Notebook Accessibility for Plots
+**Learning:** In projects where Jupyter Notebooks serve as the primary user interface and documentation, visualization accessibility is critical. Standard plot lines of different colors are indistinguishable for colorblind users. Adding distinguishable markers (e.g., 'o' vs 'x') and line-styles (e.g., solid vs dashed) along with explicit legend/axis labeling ensures accessibility.
+**Action:** Whenever generating plots in user-facing notebooks, always use unique combinations of line-styles and markers to distinguish data series, label all axes with units, and place legends in clear, non-overlapping positions.

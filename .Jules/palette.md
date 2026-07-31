@@ -1,0 +1,3 @@
+## 2026-07-31 - Colorblind-Accessible Plotting Styles in Notebooks
+**Learning:** Standard model accuracy and distribution plots often lack sufficient color contrast and shape distinction, making them hard to read for colorblind users and in printed format. Utilizing distinguishable markers (like 'o' and 'x'), distinct line-styles (like solid '-' and dashed '--'), explicit titles, and labeled axes with units significantly enhances clarity and usability.
+**Action:** When creating or updating visualization cells in Jupyter Notebooks, always include clear descriptive titles, axis labels with units, distinguishable marker symbols, and non-overlapping legends positioned optimally (e.g., 'lower right' or 'upper left') to improve visual hierarchy and accessibility.

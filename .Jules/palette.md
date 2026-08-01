@@ -1,0 +1,3 @@
+## 2023-11-20 - Accessible Plots and Human-Readable Predictions in Machine Learning Notebooks
+**Learning:** Raw numeric array predictions and default unstyled, unlabelled line plots in Jupyter Notebooks make data science exploration inaccessible. Colorblind users cannot differentiate default colored line sequences, and readers are left with confusing raw indices. Custom marker shapes (e.g., 'o', 'x') and explicit title/axis labels are critical for cognitive and visual accessibility.
+**Action:** Always styling plots using explicit markers with distinct line-styles, title labels with units, and lower-right legend placement, and decoding array prediction index outputs into descriptive human-readable text via the encoder's `inverse_transform`.

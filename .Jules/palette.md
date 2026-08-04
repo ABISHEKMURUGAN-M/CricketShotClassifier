@@ -1,0 +1,3 @@
+## 2023-11-20 - Accessible Model Performance Plotting
+**Learning:** Model performance visualizations like accuracy or loss plots should use distinguishable line styles and markers for accessbility. Relying solely on color can be problematic for colorblind users. Additionally, notebook variable classification predictions are much more usable when translated back into human-readable labels rather than leaving them as raw encoded integers or deprecated class index outputs.
+**Action:** Enhance matplotlib plots with distinct styles (e.g., `-` with `o` marker for train, `--` with `x` marker for validation) and decode raw model outputs into class name labels before presentation.

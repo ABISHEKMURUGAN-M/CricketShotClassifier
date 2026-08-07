@@ -1,0 +1,3 @@
+## 2023-11-20 - Accessible Notebook Plots and Predict Output Usability
+**Learning:** Model accuracy/validation plots in Jupyter Notebooks are often difficult to read for colorblind users when they lack distinguishable line styles and markers. In addition, raw array indices from models (e.g. from `predict_classes` or `np.argmax`) are less intuitive and harder for users to decode than actual class names.
+**Action:** Always add distinct marker styles (e.g., 'o' vs 'x') and line styles (e.g., '-' vs '--') to legend-equipped plots to distinguish training vs. validation. Ensure prediction models return human-readable labels using `inverse_transform` on the label encoder instead of returning raw integer classes.

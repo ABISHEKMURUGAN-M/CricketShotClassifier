@@ -1,0 +1,3 @@
+## 2023-11-20 - Accessible and Usable Model Evaluation & Evaluation Output
+**Learning:** For users evaluating machine learning models, visual representation using distinct markers and line-styles (e.g., 'o' with '-' and 'x' with '--') is critical for accessibility (colorblind users) to distinguish training from validation curves. Additionally, decoding numeric predictions (like [0, 2, 0]) into human-readable class labels (e.g., cricket shot names) directly in the evaluation phase greatly enhances the cognitive usability of the results.
+**Action:** Always ensure plot legends, axes with units, titles, and distinguishable markers are present in notebook evaluations. Decode all model predictions into user-friendly textual names instead of displaying raw encoder indices.

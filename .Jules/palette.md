@@ -1,0 +1,3 @@
+## 2025-01-09 - Accessibility in Plotting and Human-Readable ML Outputs
+**Learning:** For colorblind accessibility, plots must use distinguishable markers and line-styles in addition to color alone. Also, machine learning prediction outputs should always be decoded into human-readable class labels to ensure an intuitive and pleasant user experience rather than displaying raw class indices.
+**Action:** Enhance data visualization plots with distinct 'o' vs 'x' markers and solid/dashed lines, and always decode array prediction indices back into human-readable strings using the associated LabelEncoder.

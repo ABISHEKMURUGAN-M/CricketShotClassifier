@@ -1,0 +1,3 @@
+## 2025-10-24 - Distinguishable Visualizations in Jupyter Notebooks
+**Learning:** Default plots and histograms in Jupyter Notebooks often lack distinguishable styles, titles, and labeled axes, which presents accessibility barriers for colorblind users and reduces overall usability. Using clear legend positions (e.g., 'lower right' to avoid overlap), explicit title/axis labels with units, and a combination of distinct line styles (solid/dashed) and markers ('o'/'x') significantly enhances accessibility.
+**Action:** When designing data visualizations in notebooks, always pair colors with distinct line-styles/markers for accessibility, and explicitly label axes with units to provide instant context.

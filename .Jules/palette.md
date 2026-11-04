@@ -1,0 +1,3 @@
+## 2026-11-04 - Accessible Line Plots in Jupyter Notebooks
+**Learning:** Default Matplotlib line plots rely solely on color to differentiate training and validation data series, creating accessibility barriers for colorblind users or when viewed in monochrome. Adding distinct markers ('o' vs 'x') and line styles ('-' vs '--') alongside explicit titles, axis labels, legends, and gridlines ensures visualizations are inclusive, clear, and self-documenting.
+**Action:** When updating or creating plot cells in notebooks, always include distinguishable markers/linestyles, labeled axes with units/names, titles, and legends.

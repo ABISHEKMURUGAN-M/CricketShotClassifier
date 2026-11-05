@@ -1,0 +1,3 @@
+## 2024-03-30 - Accessible Visualizations in Machine Learning Notebooks
+**Learning:** In ML repositories where Jupyter notebooks serve as the primary user interface, model training and evaluation plots often lack basic accessibility features such as distinct markers/line styles, labels, and legends. Users relying on color perception or clarity are unable to distinguish between training and validation performance curves when plots only rely on default line colors.
+**Action:** Enhance matplotlib plots with contrasting markers (`o` vs `x`), distinct line styles (`-` vs `--`), informative titles, labeled axes, and clear legends (`loc="lower right"` for accuracy plots) to ensure visualizations are universally accessible.

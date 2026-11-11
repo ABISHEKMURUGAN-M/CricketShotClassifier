@@ -1,0 +1,3 @@
+## 2026-11-11 - Accessible Model Accuracy Visualization in Notebooks
+**Learning:** Jupyter Notebook visualizations often omit labeled axes, titles, legends, or line differentiation, making plots unreadable for colorblind users and unclear to viewers. Using distinct markers ('o-' vs 'x--'), clear titles, labeled axes, and explicit legend placements creates an accessible and self-explanatory chart.
+**Action:** When updating data visualizations in machine learning notebooks, always ensure both lines are distinguishable without color reliance, axes are clearly labeled, and a legend is placed in an unobstructed area (e.g. 'lower right').
